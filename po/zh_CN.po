@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: data.table 1.12.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-21 16:15+0800\n"
-"PO-Revision-Date: 2019-10-04 17:06+08\n"
-"Last-Translator: Michael Chirico <MichaelChirico4@gmail.com>\n"
+"PO-Revision-Date: 2019-10-26 23:54+08\n"
+"Last-Translator: Haogao Gu <koohoko@gmail.com>\n"
 "Language-Team: Mandarin\n"
 "Language: Mandarin\n"
 "MIME-Version: 1.0\n"
@@ -172,25 +172,28 @@ msgid ""
 "a logical subset, simply wrap with which(), and take the which() outside the "
 "loop if possible for efficiency."
 msgstr ""
+"i 为 '%s' 类型。i 必须为整（integer）型，或数值（numeric）型（将被自动转换成"
+"整型并发出警告）。如果 i 为一个用于筛选的逻辑（logical）向量，请直接将它传给 "
+"which()，且如果可能的话将 which() 放置于循环之外以保持高效。"
 
 #: assign.c:331
 #, c-format
 msgid "i[%d] is %d which is out of range [1,nrow=%d]."
-msgstr ""
+msgstr "i[%d] 为 %d 且超出了范围 [1,nrow=%d]。"
 
 #: assign.c:334
 #, c-format
 msgid "Assigning to %d row subset of %d rows\n"
-msgstr ""
+msgstr "正在为 %d 行（总数为 %d 行）进行赋值\n"
 
 #: assign.c:342
 #, c-format
 msgid "Added %d new column%s initialized with all-NA\n"
-msgstr ""
+msgstr "添加了 %d 个新列 %s 并全部初始化为 NA\n"
 
 #: assign.c:347
 msgid "length(LHS)==0; no columns to delete or assign RHS to."
-msgstr ""
+msgstr "左手侧长度为0（length(LHS)==0）；没有列可供删除或赋值给右手侧（RHS）。"
 
 #: assign.c:361
 msgid ""
@@ -198,12 +201,17 @@ msgid ""
 "Please use a data.table for that. data.table's are over-allocated and don't "
 "shallow copy."
 msgstr ""
+"数据框（data.frame）的 set() 是用于修改现有列，而非添加新列。请使用 data."
+"table 来添加新列。data.table 的操作是超额分配的（over-allocated）并且不进行浅"
+"拷贝（shallow copy）。"
 
 #: assign.c:372
 msgid ""
 "Coerced j from numeric to integer. Please pass integer for efficiency; e.g., "
 "2L rather than 2"
 msgstr ""
+"将 j 从数值（numeric）型自动转换为整（integer）型。为了保持高效请直接传入整"
+"型，如2L 而非 2"
 
 #: assign.c:375
 #, c-format
@@ -211,21 +219,23 @@ msgid ""
 "j is type '%s'. Must be integer, character, or numeric is coerced with "
 "warning."
 msgstr ""
+"j 为 '%s' 型。j 必须为整（integer）型、字符（character）型，或数值（numeric）"
+"型（将被自动转换成整型并发出警告）。"
 
 #: assign.c:377
 msgid ""
 "Can't assign to the same column twice in the same query (duplicates "
 "detected)."
-msgstr ""
+msgstr "在一次查询中无法对同一列赋值两次（检测出重复项）。"
 
 #: assign.c:378
 msgid "newcolnames is supplied but isn't a character vector"
-msgstr ""
+msgstr "指定了 newcolnames 但其并非一字符串向量"
 
 #: assign.c:380
 #, c-format
 msgid "RHS_list_of_columns == %s\n"
-msgstr ""
+msgstr "RHS_list_of_columns == %s\n"
 
 #: assign.c:385
 #, c-format
@@ -233,6 +243,8 @@ msgid ""
 "RHS_list_of_columns revised to true because RHS list has 1 item which is "
 "NULL, or whose length %d is either 1 or targetlen (%d). Please unwrap RHS.\n"
 msgstr ""
+"RHS_list_of_columns 改为真（True），因为右手侧列表（RHS list）有一子项为空值"
+"（NULL）或长度 %d 为 1 或 targetlen（%d）。请拆开右手侧。\n"
 
 #: assign.c:390
 #, c-format
@@ -241,17 +253,21 @@ msgid ""
 "table or data.frame since they are lists too). To delete multiple columns "
 "use NULL instead. To add multiple empty list columns, use list(list())."
 msgstr ""
+"试图将 %d 列赋值为空列表（可能为空数据、表（table）或数据框（data.frame），因"
+"后两者也是列表的一种）。删除多个列时请使用空值（NULL）。添加多个空列表列"
+"（list columns）时，请使用 list(list())。"
 
 #: assign.c:395
 #, c-format
 msgid "Recycling single RHS list item across %d columns. Please unwrap RHS.\n"
 msgstr ""
+"回收重用（Recycling）单个右手侧（RHS）列表子项于 %d 列。请拆开右手侧。\n"
 
 #: assign.c:397
 #, c-format
 msgid ""
 "Supplied %d columns to be assigned %d items. Please see NEWS for v1.12.2."
-msgstr ""
+msgstr "试图将 %2$d 项赋值给 %1$d 列。请阅读 v1.12.2 的更新信息（NEWS）。"
 
 #: assign.c:405
 #, c-format
@@ -260,6 +276,8 @@ msgid ""
 "set() on a data.frame is for changing existing columns, not adding new ones. "
 "Please use a data.table for that."
 msgstr ""
+"j 中的列编号里第 %d 项是 %d，超出了有效范围 [1,ncol=%d]。数据框（data.frame）"
+"的 set() 是用于修改现有列，而非添加新列。请使用 data.table 来添加新列。"
 
 #: assign.c:406
 #, c-format
@@ -267,10 +285,12 @@ msgid ""
 "Item %d of column numbers in j is %d which is outside range [1,ncol=%d]. Use "
 "column names instead in j to add new columns."
 msgstr ""
+"j 中的列编号里第 %d 项是 %d，超出了有效范围 [1,ncol=%d]。请在 j 中使用列名来"
+"添加新列。"
 
 #: assign.c:411
 msgid "When deleting columns, i should not be provided"
-msgstr ""
+msgstr "当删除列时，不应指定 i"
 
 #: assign.c:417
 #, c-format
@@ -282,22 +302,27 @@ msgid ""
 "full length RHS vector such as vector('list',nrow(DT)); i.e., 'plonk' in the "
 "new column."
 msgstr ""
+"对已有列 '%s' 的赋值其右手侧（RHS）长度为零但并非空值（NULL）。如果想要删除列"
+"请使用空值（NULL）。否则，右手侧必须长度 > 0，如 NA_integer_。如果想将该列类"
+"型修改为空列表列（list column），正如所有修改列类型的操作一样，请在右手侧提供"
+"一个与该列原数据等长的向量，如 vector('list',nrow(DT))，即，用新数据替换"
+"（plonk）重新生成该列。"
 
 #: assign.c:422
 #, c-format
 msgid ""
 "Internal error in assign.c: length(newcolnames)=%d, length(names)=%d, coln=%d"
-msgstr ""
+msgstr "assign.c 内部错误：length(newcolnames)=%d, length(names)=%d, coln=%d"
 
 #: assign.c:424
 #, c-format
 msgid "Column '%s' does not exist to remove"
-msgstr ""
+msgstr "要删除的列 '%s' 不存在"
 
 #: assign.c:430
 #, c-format
 msgid "%d column matrix RHS of := will be treated as one vector"
-msgstr ""
+msgstr "':=' 右手侧（RHS）%d 列矩阵将被视为一维向量"
 
 #: assign.c:434
 #, c-format
@@ -305,6 +330,8 @@ msgid ""
 "Can't assign to column '%s' (type 'factor') a value of type '%s' (not "
 "character, factor, integer or numeric)"
 msgstr ""
+"无法给因子（factor）类型列 '%s' 赋类型为 '%s' 的值（不是字符（character）、因"
+"子（factor）、整数（integer）或数值（numeric）类中的一种）"
 
 #: assign.c:439
 #, c-format
@@ -313,6 +340,8 @@ msgid ""
 "'recycle' the RHS please use rep() to make this intent clear to readers of "
 "your code."
 msgstr ""
+"试图将 %d 项赋值给 %d 项（列 '%s'）。如果想'回收重用'（'recycle'）右手侧，请"
+"使用 rep() 以将该意图清晰地表述给阅读代码的人。"
 
 #: assign.c:449
 msgid ""
@@ -321,6 +350,9 @@ msgid ""
 "or setalloccol() on it first (to pre-allocate space for new columns) before "
 "assigning by reference to it."
 msgstr ""
+"此 data.table 是从硬盘导入(例如 readRDS()/load() )或者手动创建(例如 "
+"structure() )。在通过引用的方式进行赋值前，请先运行 setDT() 或 setalloccol() "
+"来为增加的列预先分配空间"
 
 #: assign.c:450
 #, c-format
@@ -328,6 +360,8 @@ msgid ""
 "Internal error: oldtncol(%d) < oldncol(%d). Please report to data.table "
 "issue tracker, including result of sessionInfo()."
 msgstr ""
+"内部错误: oldtncol(%d) < oldncol(%d)。 请将此问题汇报给 data.table 问题追踪"
+"器，包括 sessionInfo() 的信息。"
 
 #: assign.c:452
 #, c-format
@@ -337,6 +371,9 @@ msgid ""
 "please report to data.table issue tracker including the result of "
 "sessionInfo()."
 msgstr ""
+"truelength (%d) 的值大于超额分配的 10000 项 (length = %d)。请查看 ?"
+"truelength。如果你没有将 datatable.alloccol 设置为非常大的数值，请将此问题汇"
+"报给 data.table 问题追踪器，包含 sessionInfo() 的信息"
 
 #: assign.c:454
 #, c-format
@@ -344,6 +381,7 @@ msgid ""
 "Internal error: DT passed to assign has not been allocated enough column "
 "slots. l=%d, tl=%d, adding %d"
 msgstr ""
+"内部错误: 传递出去赋值的 DT 没有被分配足够的列槽。 l=%d, tl=%d, 增加 %d"
 
 #: assign.c:456
 msgid ""
@@ -351,17 +389,20 @@ msgid ""
 "reassigned. Please ensure to use setnames() rather than names<- or "
 "colnames<-. Otherwise, please report to data.table issue tracker."
 msgstr ""
+"此 data.table 的名称在早先已经被重新赋值。请确保使用 setnames() 而不是 "
+"names<- 或 colnames<- 进行赋值。如果该办法无效，请将此问题汇报给 data.table "
+"问题追踪器，包含 sessionInfo() 的信息"
 
 #: assign.c:460
 #, c-format
 msgid "Internal error: selfrefnames is ok but tl names [%d] != tl [%d]"
-msgstr ""
+msgstr "内部错误: selfrefnames 正确，但 tl 的名称 [%d] != tl [%d]"
 
 #: assign.c:471
 msgid ""
 "Internal error: earlier error 'When deleting columns, i should not be "
 "provided' did not happen."
-msgstr ""
+msgstr "内部错误: 前期的错误 '当删除列的时候，不应该提供参数 i ' 没有发生"
 
 #: assign.c:482
 #, c-format
@@ -369,11 +410,13 @@ msgid ""
 "RHS for item %d has been duplicated because NAMED==%d MAYBE_SHARED==%d, but "
 "then is being plonked. length(values)==%d; length(cols)==%d)\n"
 msgstr ""
+"因为 NAMED==%d MAYBE_SHARED==%d， 所以条目 %d 的 RHS 已经被复制，但是接下来又"
+"要被替换了。length(values)==%d; length(cols)==%d)\n"
 
 #: assign.c:487
 #, c-format
 msgid "Direct plonk of unnamed RHS, no copy. NAMED==%d, MAYBE_SHARED==%d\n"
-msgstr ""
+msgstr "直接替换没有名字的 RHS，并没有复制。 NAMED==%d, MAYBE_SHARED==%d\n"
 
 #: assign.c:556
 #, c-format
@@ -381,37 +424,39 @@ msgid ""
 "Dropping index '%s' as it doesn't have '__' at the beginning of its name. It "
 "was very likely created by v1.9.4 of data.table.\n"
 msgstr ""
+"丢掉索引 '%s' 因为它的名字前面没有 '__' 。这个很可能是 data.table v1.9.4 创建"
+"的\n"
 
 #: assign.c:564
 msgid "Internal error: index name ends with trailing __"
-msgstr ""
+msgstr "内部错误: 索引名称以 __ 结尾"
 
 #: assign.c:569
 msgid "Internal error: Couldn't allocate memory for s4."
-msgstr ""
+msgstr "内部错误: 不能给 s4 分配内存"
 
 #: assign.c:580
 msgid "Internal error: Couldn't allocate memory for s5."
-msgstr ""
+msgstr "内部错误: 不能给 s5 分配内存"
 
 #: assign.c:601 assign.c:617
 #, c-format
 msgid "Dropping index '%s' due to an update on a key column\n"
-msgstr ""
+msgstr " 因为一个主列的更新，丢掉索引 '%s'\n"
 
 #: assign.c:610
 #, c-format
 msgid "Shortening index '%s' to '%s' due to an update on a key column\n"
-msgstr ""
+msgstr "因为一个主列的更新，缩短索引 '%s' 到 '%s'\n"
 
 #: assign.c:687
 #, c-format
 msgid "Internal error: recycle length error not caught earlier. slen=%d len=%d"
-msgstr ""
+msgstr "内部错误: 早期未被发现的循环长度错误 slen=%d len=%d"
 
 #: assign.c:691
 msgid "Internal error: memrecycle has received NULL colname"
-msgstr ""
+msgstr "内部错误: memrecycle 接受到的列名为 NULL "
 
 #: assign.c:717
 #, c-format
@@ -419,13 +464,14 @@ msgid ""
 "Cannot assign 'factor' to '%s'. Factors can only be assigned to factor, "
 "character or list columns."
 msgstr ""
+"不能将 'factor' 赋值为 '%s' 。因子类型只能赋值为因子，字符或者列表其中的列"
 
 #: assign.c:731
 #, c-format
 msgid ""
 "Assigning factor numbers to column %d named '%s'. But %d is outside the "
 "level range [1,%d]"
-msgstr ""
+msgstr "将列 %d 名称为 '%s' 赋值为因子。但是 %d 在层次范围[1,%d]之外"
 
 #: assign.c:739
 #, c-format
@@ -433,6 +479,8 @@ msgid ""
 "Assigning factor numbers to column %d named '%s'. But %f is outside the "
 "level range [1,%d], or is not a whole number."
 msgstr ""
+"将列 %d 名称为 '%s' 赋值为因子。但是 %f 在层次范围[1,%d]之外，或者不是一个完"
+"整的数字"
 
 #: assign.c:745
 #, c-format
@@ -440,27 +488,28 @@ msgid ""
 "Cannot assign '%s' to 'factor'. Factor columns can be assigned factor, "
 "character, NA in any type, or level numbers."
 msgstr ""
+"不能将 'factor' 赋值为 '%s' 。 因子列可被赋值为因子，字符 ，NA 或者 层次数值"
 
 #: assign.c:766
 msgid ""
 "Internal error: levels of target are either not unique or have truelength<0"
-msgstr ""
+msgstr "内部错误: 目标的层次不是唯一或者长度<0"
 
 #: assign.c:805
 #, c-format
 msgid "Unable to allocate working memory of %d bytes to combine factor levels"
-msgstr ""
+msgstr "不能分配 %d 字节的工作内存来组合因子层次"
 
 #: assign.c:812
 msgid "Internal error: extra level check sum failed"
-msgstr ""
+msgstr "内部错误: 额外的层次校验和失败"
 
 #: assign.c:831
 #, c-format
 msgid ""
 "Coercing 'character' RHS to '%s' to match the type of the target column "
 "(column %d named '%s')."
-msgstr ""
+msgstr "将'character' RHS 强制转换成 '%s' 来匹配目标列的类型(列 %d 名称 '%s')"
 
 #: assign.c:837
 #, c-format
@@ -468,29 +517,30 @@ msgid ""
 "Cannot coerce 'list' RHS to 'integer64' to match the type of the target "
 "column (column %d named '%s')."
 msgstr ""
+"不能将'list' RHS 强制转换成 'integer64' 来匹配目标列的类型(列 %d 名称 '%s')"
 
 #: assign.c:842
 #, c-format
 msgid ""
 "Coercing 'list' RHS to '%s' to match the type of the target column (column "
 "%d named '%s')."
-msgstr ""
+msgstr "将'list' RHS 强制转换成 '%s' 来匹配目标列的类型(列 %d 名称 '%s')"
 
 #: assign.c:848
 #, c-format
 msgid "Zero-copy coerce when assigning '%s' to '%s' column %d named '%s'.\n"
-msgstr ""
+msgstr "当 '%s' 赋值成 '%s' 列 %d 名称 '%s'，进行Zero-copy强制转换。\n"
 
 #: assign.c:943
 #, c-format
 msgid "type '%s' cannot be coerced to '%s'"
-msgstr ""
+msgstr "类型 '%s' 不能强制转换成 '%s'"
 
 #: assign.c:1063
 msgid ""
 "To assign integer64 to a character column, please use as.character() for "
 "clarity."
-msgstr ""
+msgstr "请使用 as.character() 把 integer64 类型的数值赋值给字符列"
 
 #: assign.c:1074
 #, c-format
@@ -943,40 +993,47 @@ msgid ""
 "All items in j=list(...) should be atomic vectors or lists. If you are "
 "trying something like j=list(.SD,newcol=mean(colA)) then use := by group "
 "instead (much quicker), or cbind or merge afterwards."
-msgstr ""
+msgstr "j=list(...) 中的所有项目必须是原子向量或列表"
+"如果您试图进行 j=list(.SD,newcol=mean(colA)) 之类的操作"
+"请使用 := by group 代替(更快速)，或事后使用 cbind()、merge()"
 
-#: dogroups.c:291
+#: dogroups.c:290
 msgid ""
-"RHS is NULL when grouping :=. Makes no sense to delete a column by group. "
-"Perhaps use an empty vector instead."
-msgstr ""
+"RHS of := is NULL during grouped assignment, but it's not possible to delete "
+"parts of a column."
+msgstr "用 := 分组时 RHS 为 NULL"
+"但無法刪除部分列"
 
-#: dogroups.c:295
+#: dogroups.c:294
 #, c-format
 msgid ""
 "Supplied %d items to be assigned to group %d of size %d in column '%s'. The "
 "RHS length must either be 1 (single values are ok) or match the LHS length "
 "exactly. If you wish to 'recycle' the RHS please use rep() explicitly to "
 "make this intent clear to readers of your code."
-msgstr ""
+msgstr "提供 %1$d 个项分配给第 '%4$s' 列中的第 %2$d 组，组的大小为 %3$d "
+"RHS 的长度必须是 1(可以是单个值) 或完全符合 LHS 的长度"
+"如果您想回收(recycle) RHS，请使用 rep() 向你的代码读者明确表达你的意图"
 
-#: dogroups.c:304
+
+#: dogroups.c:305
 msgid ""
 "Internal error: Trying to add new column by reference but tl is full; "
 "setalloccol should have run first at R level before getting to this point in "
 "dogroups"
-msgstr ""
+msgstr "内部错误 : 尝试依照引用增加新列但 tl 已满"
+"在进入 dogroups 之前，setalloccol 应该先在 R 运行"
 
-#: dogroups.c:319
+#: dogroups.c:320
 #, c-format
 msgid "Group %d column '%s': %s"
-msgstr ""
+msgstr "列 '%2$s' 第 %1$d 组 : %3$s"
 
-#: dogroups.c:326
+#: dogroups.c:327
 msgid "j doesn't evaluate to the same number of columns for each group"
-msgstr ""
+msgstr "j 估算出的每组的列数不同"
 
-#: dogroups.c:360
+#: dogroups.c:361
 #, c-format
 msgid ""
 "Column %d of j's result for the first group is NULL. We rely on the column "
@@ -985,90 +1042,105 @@ msgid ""
 "groups (and those are replaced with NA of appropriate type and recycled) but "
 "not for the first. Please use a typed empty vector instead, such as "
 "integer() or numeric()."
-msgstr ""
+msgstr "j 的结果中第 %d 列在第 1 组中为 NULL"
+"我们依赖第 1 组的列类型去决定剩余组的类型(需要一致性)"
+"空 (NULL) 列可以出现在后面的组(适当的以 NA 取代并回收)但不能是第 1 组"
+"请输入空向量代替，例如 integer() 或 numeric()"
 
-#: dogroups.c:363
+#: dogroups.c:364
 msgid ""
 "j appears to be a named vector. The same names will likely be created over "
 "and over again for each group and slow things down. Try and pass a named "
 "list (which data.table optimizes) or an unnamed list() instead.\n"
-msgstr ""
+msgstr "j 是名称向量，这可能使相同的名称不停重复创建导致速度变慢"
+"请尝试输入名称列表(较适合 data.table)或是非名称列表代替\n"
 
-#: dogroups.c:365
+#: dogroups.c:366
 #, c-format
 msgid ""
 "Column %d of j is a named vector (each item down the rows is named, "
 "somehow). Please remove those names for efficiency (to save creating them "
 "over and over for each group). They are ignored anyway.\n"
-msgstr ""
+msgstr "j 的第 %d 列是名称向量(整行的项都是名称)"
+"为了效率请移除这些名称(避免在每组重复创建这些名称)"
+"总之他们被忽略了\n"
 
-#: dogroups.c:373
+#: dogroups.c:374
 msgid ""
 "The result of j is a named list. It's very inefficient to create the same "
 "names over and over again for each group. When j=list(...), any names are "
 "detected, removed and put back after grouping has completed, for efficiency. "
 "Using j=transform(), for example, prevents that speedup (consider changing "
 "to :=). This message may be upgraded to warning in future.\n"
-msgstr ""
-
-#: dogroups.c:385
-#, c-format
-msgid "dogroups: growing from %d to %d rows\n"
-msgstr ""
+msgstr "j 的结果是名称列表，在每组不停重复创建相同的名称很没效率"
+"为了提高效率，当 j=list(...) 时侦测到的所有名称会被移出，待分组完成后再放回来"
+"可以使用  j=transform() 避免这种加速"
+"此讯息可能会在未来升级为警告\n"
 
 #: dogroups.c:386
+#, c-format
+msgid "dogroups: growing from %d to %d rows\n"
+msgstr "dogroups: 从 %d 列增加至 %d 列\n"
+
+#: dogroups.c:387
 #, c-format
 msgid "dogroups: length(ans)[%d]!=ngrpcols[%d]+njval[%d]"
 msgstr ""
 
-#: dogroups.c:419
+#: dogroups.c:420
 #, c-format
 msgid ""
 "Item %d of j's result for group %d is zero length. This will be filled with "
 "%d NAs to match the longest column in this result. Later groups may have a "
 "similar problem but only the first is reported to save filling the warning "
 "buffer."
-msgstr ""
+msgstr "j 的结果第 %d 项在第 %d 组中为零长度(zero length)"
+"将使用 %d 个 NA 填入以符合结果中最长列的长度"
+"后面的分组也有相同问题，但只回报第一组以避免过多警告"
 
-#: dogroups.c:426
+#: dogroups.c:427
 #, c-format
 msgid ""
 "Column %d of result for group %d is type '%s' but expecting type '%s'. "
 "Column types must be consistent for each group."
-msgstr ""
+msgstr "结果的第 %d 列在第 %d 组中是 '%s' 类别而非预期的 '%s' 类别"
+"所有组的列类别必须一致"
 
-#: dogroups.c:428
+#: dogroups.c:429
 #, c-format
 msgid ""
 "Supplied %d items for column %d of group %d which has %d rows. The RHS "
 "length must either be 1 (single values are ok) or match the LHS length "
 "exactly. If you wish to 'recycle' the RHS please use rep() explicitly to "
 "make this intent clear to readers of your code."
-msgstr ""
+msgstr "提供 %1$d 项给第 %3$d 組的第 %2$d 列，这组有 %4$d 行"
+"RHS長度必須為 1 (可以使用單個值) 或與 LHS 長度完全匹配"
+"如果您想回收(recycle) RHS，请使用 rep() 向你的代码读者明确表达你的意图"
 
-#: dogroups.c:443
+#: dogroups.c:444
 #, c-format
 msgid "Wrote less rows (%d) than allocated (%d).\n"
-msgstr ""
+msgstr "写入的行 (%d) 少于分配的 (%d)\n"
 
-#: dogroups.c:453
+#: dogroups.c:454
 #, c-format
 msgid "Internal error: block 0 [%d] and block 1 [%d] have both run"
-msgstr ""
+msgstr "内部错误 : 区块 0 [%d] 与区块 1 [%d] 都运行了"
 
-#: dogroups.c:455
+#: dogroups.c:456
 #, c-format
 msgid ""
 "\n"
 "  %s took %.3fs for %d groups\n"
-msgstr ""
+msgstr "\n"
+" %s 花了 %.3fs 在 %d 个组\n"
 
-#: dogroups.c:457
+#: dogroups.c:458
 #, c-format
 msgid "  eval(j) took %.3fs for %d calls\n"
 msgstr ""
 
-#: dogroups.c:481
+#: dogroups.c:482
 msgid "growVector passed NULL"
 msgstr ""
 
@@ -1170,9 +1242,10 @@ msgid "concat: 'idx' must be an integer vector of length >= 0"
 msgstr ""
 
 #: fmelt.c:75
+#, c-format
 msgid ""
-"concat: 'idx' must take values between 0 and length(vec); 0 <= idx <= "
-"length(vec)"
+"Internal error in concat: 'idx' must take values between 0 and length(vec); "
+"0 <= idx <= %d"
 msgstr ""
 
 #: fmelt.c:102
@@ -1320,11 +1393,11 @@ msgstr ""
 msgid "Argument 'verbose' should be logical TRUE/FALSE"
 msgstr ""
 
-#: fmelt.c:682
+#: fmelt.c:683
 msgid "ncol(data) is 0. Nothing to melt. Returning original data.table."
 msgstr ""
 
-#: fmelt.c:687
+#: fmelt.c:688
 msgid "names(data) is NULL. Please report to data.table-help"
 msgstr ""
 
@@ -1480,7 +1553,7 @@ msgid "Column %d passed to [f]order is type '%s', not yet supported."
 msgstr ""
 
 #: forder.c:714
-msgid "Internal error: column not supported not caught earlier"
+msgid "Internal error: column not supported, not caught earlier"
 msgstr ""
 
 #: forder.c:722
@@ -1854,6 +1927,13 @@ msgstr ""
 msgid ""
 "  File ends abruptly with '%c'. Final end-of-line is missing. Using cow page "
 "to write 0 to the last byte.\n"
+msgstr ""
+
+#: fread.c:1335
+msgid ""
+"This file is very unusual: it ends abruptly without a final newline, and "
+"also its size is a multiple of 4096 bytes. Please properly end the last row "
+"with a newline using for example 'echo >> file' to avoid this "
 msgstr ""
 
 #: fread.c:1336
@@ -2607,12 +2687,15 @@ msgid ""
 "%s: NA (or other non-finite) value(s) are present in input, skip non-NA "
 "attempt and run with extra care for NAs\n"
 msgstr ""
+"%s: NA (或其他非有限长度值) 出现在输入中, 跳过非NA的"
+"输入并当心NA值\n"
 
 #: froll.c:141 froll.c:339
 #, c-format
 msgid ""
 "%s: running in parallel for input length %llu, window %d, hasna %d, narm %d\n"
 msgstr ""
+"%s: 正在并行运行, 输入长度 (input length) %llu, 窗口 (window) %d, hasna %d, narm %d\n"
 
 #: froll.c:179 froll.c:372 frolladaptive.c:157 frolladaptive.c:336
 #, c-format
@@ -2620,11 +2703,13 @@ msgid ""
 "%s: NA (or other non-finite) value(s) are present in input, na.rm was FALSE "
 "so in 'exact' implementation NAs were handled already, no need to re-run\n"
 msgstr ""
+"%s: NA (或其他非有限长度值) 出现在输入中, na.rm 为 FALSE "
+"因此在'exact'实现中, NA值已经被处理, 不需要重新运行\n"
 
 #: froll.c:428
 #, c-format
 msgid "%s: results from provided FUN are not length 1"
-msgstr ""
+msgstr "%s: 所提供的函数 (FUN) 的结果长度不为1"
 
 #: froll.c:435
 #, c-format
@@ -2632,80 +2717,87 @@ msgid ""
 "%s: results from provided FUN are not of type double, coercion from integer "
 "or logical will be applied on each iteration\n"
 msgstr ""
+"%s: 所提供的函数 (FUN) 的结果不是双精度 (double) 类型, "
+"对整数或逻辑值的类型转换会在每个循环中执行\n"
 
 #: froll.c:438
 #, c-format
 msgid "%s: results from provided FUN are not of type double"
-msgstr ""
+msgstr "%s: 所提供的函数 (FUN) 的结果不是双精度 (double) 类型"
 
 #: froll.c:467
 #, c-format
 msgid "%s: took %.3fs\n"
-msgstr ""
+msgstr "%s: 使用了 %.3fs\n"
 
 #: frollR.c:15
 msgid "x must be of type numeric or logical"
-msgstr ""
+msgstr "x 必须是数值或者逻辑类型"
 
 #: frollR.c:26
 msgid "x must be list, data.frame or data.table of numeric or logical types"
-msgstr ""
+msgstr "x 必须是列表 (list), 或由数值或者逻辑类型组成的数据框 (data.frame 或 data.table)"
 
 #: frollR.c:47 frollR.c:264
 msgid "n must be non 0 length"
-msgstr ""
+msgstr "n 必须不是0长度"
 
 #: frollR.c:50
 msgid "adaptive must be TRUE or FALSE"
-msgstr ""
+msgstr "adaptive 必须是 TRUE 或者 FALSE"
 
 #: frollR.c:58
 msgid "n must be integer, list is accepted for adaptive TRUE"
-msgstr ""
+msgstr "n 必须是整数, 或者当adaptive TRUE时也可以是列表"
 
 #: frollR.c:65 frollR.c:256 frollR.c:259
 msgid "n must be integer"
-msgstr ""
+msgstr "n 必须是整数"
 
 #: frollR.c:72
 msgid "n must be positive integer values (> 0)"
-msgstr ""
+msgstr "n 必须是正整数 (> 0)"
 
 #: frollR.c:81 frollR.c:93
 msgid "n must be integer vector or list of integer vectors"
-msgstr ""
+msgstr "n 必须是整数向量 或者由整数向量组成的列表"
 
 #: frollR.c:104 gsumm.c:342 gsumm.c:577 gsumm.c:686 gsumm.c:805 gsumm.c:950
 #: gsumm.c:1261 gsumm.c:1402 uniqlist.c:350
 msgid "na.rm must be TRUE or FALSE"
-msgstr ""
+msgstr "na.rm 必须是 TRUE 或者 FALSE"
 
 #: frollR.c:107
 msgid "hasNA must be TRUE, FALSE or NA"
-msgstr ""
+msgstr "hasNA 必须是 TRUE, FALSE 或者 NA"
 
 #: frollR.c:109
 msgid ""
 "using hasNA FALSE and na.rm TRUE does not make sense, if you know there are "
 "NA values use hasNA TRUE, otherwise leave it as default NA"
 msgstr ""
+"同时使用 hasNA FALSE 和 na.rm TRUE 没有意义, 如果明确有"
+"NA值, 那就用 hasNA TRUE, 在其他情况可以让它保留默认值NA"
 
 #: frollR.c:119 frollR.c:275
 msgid ""
 "Internal error: invalid align argument in rolling function, should have been "
 "caught before. please report to data.table issue tracker."
 msgstr ""
+"内部错误: 在 rolling 函数内无效的 align 参数, 理应在更早阶段排除"
+"请向data.table issue tracker报告"
 
 #: frollR.c:122
 msgid ""
 "using adaptive TRUE and align argument different than 'right' is not "
 "implemented"
 msgstr ""
+"同时使用 adaptive TRUE 和不是 'right' 的align参数还未能实现"
 
 #: frollR.c:126 frollR.c:297 types.c:64
 #, c-format
 msgid "%s: allocating memory for results %dx%d\n"
-msgstr ""
+msgstr "%s: 正在为结果 %dx%d 分配内存\n"
 
 #: frollR.c:135
 msgid ""
@@ -2714,44 +2806,52 @@ msgid ""
 "function on list having variable length of elements call it for each field "
 "separately"
 msgstr ""
+"adaptive rolling 函数只能处理长度同为"
+"的 'x', 比如 data.table 或数据框; 如果想在含有不同长度元素的列表上执行 rolling"
+"函数, 需要分开单独地在每一项上面执行."
 
 #: frollR.c:137
 msgid ""
 "length of integer vector(s) provided as list to 'n' argument must be equal "
 "to number of observations provided in 'x'"
 msgstr ""
+"'n' 列表中整数向量的长度必须等于 'x' 中的观察数量"
 
 #: frollR.c:151
 msgid ""
 "Internal error: invalid fun argument in rolling function, should have been "
 "caught before. please report to data.table issue tracker."
 msgstr ""
+"内部错误: 在 rolling 函数中无效的 fun 参数, 理应在更早阶段排除"
+"请向data.table issue tracker报告"
 
 #: frollR.c:155 frollR.c:279 nafill.c:136 shift.c:21
 msgid "fill must be a vector of length 1"
-msgstr ""
+msgstr "fill 必须是长度为1的向量"
 
 #: frollR.c:169 frollR.c:292
 msgid "fill must be numeric"
-msgstr ""
+msgstr "fill 必须是数值型"
 
 #: frollR.c:185
 msgid ""
 "Internal error: invalid algo argument in rolling function, should have been "
 "caught before. please report to data.table issue tracker."
 msgstr ""
+"内部错误: 在 rolling 函数内无效的 algo 参数, 理应在更早阶段排除"
+"请向data.table issue tracker报告"
 
 #: frollR.c:190
 #, c-format
 msgid "Internal error: badaptive=%d but ik is not integer"
-msgstr ""
+msgstr "内部错误: badaptive=%d 但是 ik 不是整数"
 
 #: frollR.c:198
 #, c-format
 msgid ""
 "%s: %d column(s) and %d window(s), if product > 1 then entering parallel "
 "execution\n"
-msgstr ""
+msgstr "%s: %d column(s) 和 %d window(s), 如果 product > 1 则进入并行执行\n"
 
 #: frollR.c:200
 #, c-format
@@ -2759,48 +2859,50 @@ msgid ""
 "%s: %d column(s) and %d window(s), not entering parallel execution here "
 "because algo='exact' will compute results in parallel\n"
 msgstr ""
+"%s: %d column(s) 和 %d window(s), 未能进入并行执行,"
+"因为 algo='exact' 会并行计算结果\n"
 
 #: frollR.c:219
 #, c-format
 msgid "Internal error: Unknown sfun value in froll: %d"
-msgstr ""
+msgstr "内部错误: 在 froll: %d 中未知的 sfun 值"
 
 #: frollR.c:227 frollR.c:328
 #, c-format
 msgid "%s: processing of %d column(s) and %d window(s) took %.3fs\n"
-msgstr ""
+msgstr "%s: 处理 %d column(s), 和 %d window(s) 用掉 %.3fs\n"
 
 #: frollR.c:238
 msgid "internal error: 'fun' must be a function"
-msgstr ""
+msgstr "内部错误: 'fun' 必须是一个函数"
 
 #: frollR.c:240
 msgid "internal error: 'rho' should be an environment"
-msgstr ""
+msgstr "内部错误: 'rho' 应该为一个环境 (environment)"
 
 #: frolladaptive.c:33 frolladaptive.c:222
 #, c-format
 msgid "%s: running for input length %llu, hasna %d, narm %d\n"
-msgstr ""
+msgstr "%s: 正在运行, 输入长度 %llu, hasna %d, narm %d\n"
 
 #: frolladaptive.c:39 frolladaptive.c:228
 #, c-format
 msgid "%s: Unable to allocate memory for cumsum"
-msgstr ""
+msgstr "%s: 无法为 cumsum 分配内存"
 
 #: frolladaptive.c:75 frolladaptive.c:264
 #, c-format
 msgid "%s: Unable to allocate memory for cum NA counter"
-msgstr ""
+msgstr "%s: 无法为 cum NA counter 分配内存"
 
 #: frolladaptive.c:118 frolladaptive.c:302
 #, c-format
 msgid "%s: running in parallel for input length %llu, hasna %d, narm %d\n"
-msgstr ""
+msgstr "%s: 正在并行运行, 输入长度 %llu, hasna %d, narm %d\n"
 
 #: fsort.c:111
 msgid "x must be a vector of type 'double' currently"
-msgstr ""
+msgstr "x 目前必须是双精度 ('double') 类型的向量"
 
 #: fsort.c:122
 #, c-format
@@ -3056,11 +3158,11 @@ msgstr ""
 
 #: gsumm.c:47
 msgid "l is not an integer vector"
-msgstr "l ������������"
+msgstr "l 不是整数向量"
 
 #: gsumm.c:56
 msgid "irowsArg is neither an integer vector nor NULL"
-msgstr "irowsArg �Ȳ�����������Ҳ���� NULL"
+msgstr "irowsArg 既不是整数向量也不是 NULL"
 
 #: gsumm.c:58
 #, c-format
@@ -3070,48 +3172,49 @@ msgstr ""
 #: gsumm.c:66
 #, c-format
 msgid "o has length %d but sum(l)=%d"
-msgstr "o �ĳ���Ϊ %d���� sum(l) = %d"
+msgstr "o 的长度为 %d，但 sum(l) = %d"
 
 #: gsumm.c:69
 msgid "Internal error: o's maxgrpn attribute mismatches recalculated maxgrpn"
-msgstr "�ڲ�����o �� maxgrpn ���������¼���� maxgrpn ��ƥ��"
+msgstr "内部错误：o 的 maxgrpn 属性与重新计算的 maxgrpn 不匹配"
 
 #: gsumm.c:89
 #, c-format
 msgid ""
 "Internal error: nrow=%d  ngrp=%d  nbit=%d  shift=%d  highSize=%d  nBatch=%d  "
 "batchSize=%d  lastBatchSize=%d\n"
-msgstr "�ڲ�����nrow=%d ngrp=%d  nbit=%d  shift=%d  highSize=%d  nBatch=%d  "
+msgstr ""
+"内部错误：nrow=%d ngrp=%d  nbit=%d  shift=%d  highSize=%d  nBatch=%d  "
 "batchSize=%d  lastBatchSize=%d\n"
 
 #: gsumm.c:98
 #, c-format
 msgid "gforce initial population of grp took %.3f\n"
-msgstr "grp �� gforce ��ʼȺ����ռ�� %.3f\n "
+msgstr "grp 的 gforce 初始群体数占了 %.3f\n"
 
 #: gsumm.c:116
 msgid ""
 "Internal error: Failed to allocate counts or TMP when assigning g in gforce"
-msgstr "�ڲ������� gforce ��Ϊ g ��ֵʱ��δ�ܳɹ�Ϊ counts ���� TMP ����ռ�"
+msgstr "内部错误：在 gforce 中为 g 赋值时，未能成功为 counts 或者 TMP 分配空间"
 
 #: gsumm.c:194
 #, c-format
 msgid "gforce assign high and low took %.3f\n"
-msgstr "gforce ���� high �� low ���� %.3f\n"
+msgstr "gforce 分配 high 和 low 用了 %.3f\n"
 
 #: gsumm.c:200
 #, c-format
 msgid "gforce eval took %.3f\n"
-msgstr "gforce eval ���� %.3f\n"
+msgstr "gforce eval 用了 %.3f\n"
 
 #: gsumm.c:216
 msgid "gather took ... "
-msgstr "gather ���� ..."
+msgstr "gather 用了 ..."
 
 #: gsumm.c:334
 #, c-format
 msgid "gather implemented for INTSXP, REALSXP, and CPLXSXP but not '%s'"
-msgstr "gather ��֧�� INTSXP��REALSXP �� CPLXSXP������֧�� '%s'"
+msgstr "gather 已支持 INTSXP，REALSXP 和 CPLXSXP，但不支持 '%s'"
 
 #: gsumm.c:336 gsumm.c:568
 #, c-format
@@ -3120,65 +3223,67 @@ msgstr ""
 
 #: gsumm.c:345
 msgid "sum is not meaningful for factors."
-msgstr "���ӵĺ�û�����塣"
+msgstr "因子的和没有意义。"
 
 #: gsumm.c:349
 #, c-format
 msgid "This gsum took (narm=%s) ... "
-msgstr "gsum ռ���� (narm=%s) ..."
+msgstr "gsum 占用了 (narm=%s) ..."
 
 #: gsumm.c:350 gsumm.c:606
 #, c-format
 msgid "nrow [%d] != length(x) [%d] in gsum"
-msgstr "gsum �� nrow [%d] != length(x) [%d]"
+msgstr "gsum 中 nrow [%d] != length(x) [%d]"
 
 #: gsumm.c:404
 msgid ""
 "The sum of an integer column for a group was more than type 'integer' can "
 "hold so the result has been coerced to 'numeric' automatically for "
 "convenience."
-msgstr "ĳ�����з�����͵Ľ���У�"
-"�����˳��������ͣ�interger����ֵ���������ֵ�������"
-"�ʽ�����Զ�ת��Ϊ��ֵ���ͣ�numeric��"
+msgstr ""
+"某整数列分组求和的结果中，出现了超过了整型（interger）数值所允许最大值的情"
+"况，故结果被自动转换为数值类型（numeric）"
 
 #: gsumm.c:565
 #, c-format
 msgid ""
 "Type '%s' not supported by GForce sum (gsum). Either add the prefix base::"
 "sum(.) or turn off GForce optimization using options(datatable.optimize=1)"
-msgstr "GForce ��ͣ�gsum����֧������ '%s'����ʹ�� base::sum(.) ����"
-"���� options(datatable.optimize=1) �ر� GForce �Ż�"
+msgstr ""
+"GForce 求和（gsum）不支持类型 '%s'。请使用 base::sum(.) 或者设置 "
+"options(datatable.optimize=1) 关闭 GForce 优化"
 
 #: gsumm.c:578
 msgid ""
 "GForce mean can only be applied to columns, not .SD or similar. Likely "
 "you're looking for 'DT[,lapply(.SD,mean),by=,.SDcols=]'. See ?data.table."
-msgstr "GForce ��ƽ��ֵ���������У����������� .SD ��������"
-"�������ڲ��� 'DT[,lapply(.SD,mean),by=,.SDcols=]'���μ� ?data.table ��"
+msgstr ""
+"GForce 求平均值仅适用于列，而不能用于 .SD 或其它。或许你在查找 'DT[,lapply(."
+"SD,mean),by=,.SDcols=]'。参见 ?data.table 。"
 
 #: gsumm.c:579
 msgid "mean is not meaningful for factors."
-msgstr "���ӵ�ƽ��ֵû������"
+msgstr "因子的平均值没有意义"
 
 #: gsumm.c:599
 #, c-format
 msgid "Internal error: gsum returned type '%s'. typeof(x) is '%s'"
-msgstr "�ڲ�����gsum ���ص������� '%s'���� typeof(x) �Ľ������ '%s'"
+msgstr "内部错误：gsum 返回的类型是 '%s'，而 typeof(x) 的结果则是 '%s'"
 
 #: gsumm.c:609
 #, c-format
 msgid "Unable to allocate %d * %d bytes for sum in gmean na.rm=TRUE"
-msgstr "�޷�Ϊ gmean na.rm=TRUE ���ܺͣ�sum������ %d * %d �ֽڿռ�"
+msgstr "无法为 gmean na.rm=TRUE 的总和（sum）分配 %d * %d 字节空间"
 
 #: gsumm.c:612
 #, c-format
 msgid "Unable to allocate %d * %d bytes for counts in gmean na.rm=TRUE"
-msgstr "�޷�Ϊ gmean na.rm=TRUE �ļ�����counts������ %d * %d �ֽڿռ�"
+msgstr "无法为 gmean na.rm=TRUE 的计数（counts）分配 %d * %d 字节空间"
 
 #: gsumm.c:638
 #, c-format
 msgid "Unable to allocate %d * %d bytes for si in gmean na.rm=TRUE"
-msgstr "�޷�Ϊ gmean na.rm=TRUE �� si ���� %d * %d �ֽڿռ�"
+msgstr "无法为 gmean na.rm=TRUE 的 si 分配 %d * %d 字节空间"
 
 #: gsumm.c:650
 #, c-format
@@ -3186,12 +3291,13 @@ msgid ""
 "Type '%s' not supported by GForce mean (gmean) na.rm=TRUE. Either add the "
 "prefix base::mean(.) or turn off GForce optimization using options(datatable."
 "optimize=1)"
-msgstr "GForce ���ֵ��gmean����֧������ '%s'����ʹ�� base::mean(.) ����"
-"���� options(datatable.optimize=1) �ر� GForce �Ż�"
+msgstr ""
+"GForce 求均值（gmean）不支持类型 '%s'。请使用 base::mean(.) 或者设置 "
+"options(datatable.optimize=1) 关闭 GForce 优化"
 
 #: gsumm.c:674
 msgid "Internal error: unsupported type at the end of gmean"
-msgstr "�ڲ�����gmean ��β�����ڲ�֧�ֵ�����"
+msgstr "内部错误：gmean 结尾处存在不支持的类型"
 
 #: gsumm.c:687
 msgid ""
@@ -3199,45 +3305,46 @@ msgid ""
 "of all items in a list such as .SD, either add the prefix base::min(.SD) or "
 "turn off GForce optimization using options(datatable.optimize=1). More "
 "likely, you may be looking for 'DT[,lapply(.SD,min),by=,.SDcols=]'"
-msgstr "GForce ����Сֵ��min�����������У����������� .SD ��������"
-"Ҫ�ҵ��б��У��� .SD������Ԫ�ص���Сֵ����ʹ�� base::min(.SD) ����"
-"���� options(datatable.optimize=1) �ر� GForce �Ż���"
-"��������ڲ��� 'DT[,lapply(.SD,min),by=,.SDcols=]'"
+msgstr ""
+"GForce 求最小值（min）仅适用于列，而不能用于 .SD 或其它。要找到列表中（如 ."
+"SD）所有元素的最小值，须使用 base::min(.SD) 或者设置 options(datatable."
+"optimize=1) 关闭 GForce 优化。你更像是在查找 'DT[,lapply(.SD,min),by=,."
+"SDcols=]'"
 
 #: gsumm.c:688
 msgid "min is not meaningful for factors."
-msgstr "���ӵ���Сֵû�����塣"
+msgstr "因子的最小值没有意义。"
 
 #: gsumm.c:693
 #, c-format
 msgid "nrow [%d] != length(x) [%d] in gmin"
-msgstr "gmin �� nrow [%d] != length(x) [%d]"
+msgstr "gmin 中 nrow [%d] != length(x) [%d]"
 
 #: gsumm.c:717 gsumm.c:850
 msgid ""
 "No non-missing values found in at least one group. Coercing to numeric type "
 "and returning 'Inf' for such groups to be consistent with base"
-msgstr "������һ��������û�з���ȱʧֵ��"
-"Ϊ���� base ����һ�£�����Щ��ǿ��ת��Ϊ��ֵ���Ͳ����� ��Inf����"
+msgstr ""
+"在至少一个分组中没有发现缺失值。为了与 base 保持一致，将这些组强制转换为数值"
+"类型并返回 ‘Inf’。"
 
 #: gsumm.c:756 gsumm.c:891
 msgid ""
 "No non-missing values found in at least one group. Returning 'NA' for such "
 "groups to be consistent with base"
-msgstr "������һ��������û�з���ȱʧֵ��"
-"Ϊ���� base ����һ�£���Щ�齫���� ��NA����"
+msgstr ""
+"在至少一个分组中没有发现缺失值。为了与 base 保持一致，这些组将返回 ‘NA’。"
 
 #: gsumm.c:783
 msgid ""
 "No non-missing values found in at least one group. Returning 'Inf' for such "
 "groups to be consistent with base"
-msgstr "������һ��������û�з���ȱʧֵ��"
-"Ϊ���� base ����һ�£���Щ�齫���� ��Inf����"
-
+msgstr ""
+"在至少一个分组中没有发现缺失值。为了与 base 保持一致，这些组将返回 ‘Inf’。"
 
 #: gsumm.c:791
 msgid "Type 'complex' has no well-defined min"
-msgstr "�������ܱȽϴ�С����û����Сֵ"
+msgstr "复数不能比较大小，故没有最小值"
 
 #: gsumm.c:794
 #, c-format
@@ -3245,8 +3352,8 @@ msgid ""
 "Type '%s' not supported by GForce min (gmin). Either add the prefix base::"
 "min(.) or turn off GForce optimization using options(datatable.optimize=1)"
 msgstr ""
-"����'%s'��֧��Ӧ�� GForce ��Сֵ��gmin�� �Ż������������ǰ׺ base::"
-"min(.) ����ʹ�� options(datatable.optimize=1) �ر� GForce �Ż�"
+"类型'%s'不支持应用 GForce 最小值（gmin） 优化。你可以添加前缀 base::min(.) 或"
+"者使用 options(datatable.optimize=1) 关闭 GForce 优化"
 
 #: gsumm.c:806
 msgid ""
